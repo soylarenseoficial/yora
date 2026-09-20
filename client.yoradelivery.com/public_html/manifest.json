@@ -1,0 +1,9 @@
+{
+  "name": "Yora",
+  "short_name": "Yora",
+  "start_url": "/dashboard.php",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#e4441b",
+  "lang": "es"
+}
