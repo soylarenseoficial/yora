@@ -1,0 +1,270 @@
+/* Layout base del sidebar: todas las páginas del HQ lo necesitan.
+   Antes cada PHP lo copiaba; Clientes no lo tenía y el menú se veía crudo. */
+:root {
+    --yora-orange: #ce4e2d;
+    --hq-card: #ffffff;
+    --hq-border: #e5e7eb;
+    --hq-text: #1f2937;
+    --hq-muted: #6b7280;
+}
+.sidebar {
+    width: 280px;
+    min-width: 280px;
+    background: var(--hq-card);
+    padding: 25px 20px;
+    border-right: 1px solid var(--hq-border);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.02);
+    box-sizing: border-box;
+}
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    padding-left: 10px;
+}
+.sidebar h2 { font-size: 1.5rem; margin: 0; font-weight: 700; letter-spacing: -0.5px; color: var(--hq-text); }
+.sidebar h2 span { color: var(--yora-orange); }
+.badge-app { background: rgba(206,78,45,0.1); color: var(--yora-orange); font-size: 0.7rem; padding: 4px 8px; border-radius: 6px; font-weight: 600; }
+.menu-category { font-size: 0.75rem; text-transform: uppercase; color: var(--hq-muted); font-weight: 600; letter-spacing: 1px; margin: 0 0 10px 10px; }
+.menu-item {
+    padding: 12px 15px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #4b5563;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.menu-item .icon { font-size: 1.1rem; }
+.menu-item:hover { background: #f3f4f6; color: var(--hq-text); transform: translateX(3px); }
+.menu-item.active { background: rgba(206,78,45,0.1); color: var(--yora-orange); font-weight: 600; }
+.menu-bottom { margin-top: auto; border-top: 1px solid var(--hq-border); padding-top: 15px; }
+.logout-btn:hover { background: #fee2e2; color: #ef4444; }
+
+/* Chrome HQ: sidebar con scroll + modo teléfono. Se carga AL FINAL para ganar. */
+.sidebar {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: 100dvh;
+    padding-bottom: 28px !important;
+}
+.sidebar .menu-bottom {
+    margin-top: 20px !important;
+    position: static !important;
+}
+.hq-topbar,
+.hq-fondo,
+.hq-cerrar { display: none; }
+
+.hq-topbar strong { font-size: 1.05rem; }
+.hq-topbar strong span { color: #ce4e2d; }
+.hq-burger {
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 12px;
+    background: #fff7ed;
+    color: #ce4e2d;
+    font-size: 1.35rem;
+    cursor: pointer;
+}
+
+html.hq-movil,
+html.hq-movil body {
+    display: block !important;
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+html.hq-movil .hq-topbar {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+html.hq-movil .sidebar {
+    display: none !important;
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    width: min(86vw, 320px) !important;
+    min-width: 0 !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    z-index: 220;
+    box-shadow: 12px 0 30px rgba(15, 23, 42, 0.2);
+    transform: none !important;
+}
+html.hq-movil .sidebar.abierto {
+    display: flex !important;
+    flex-direction: column !important;
+}
+html.hq-movil .sidebar .hq-cerrar {
+    display: inline-flex !important;
+    margin-left: auto;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 10px;
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+html.hq-movil .hq-fondo {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    z-index: 210;
+}
+html.hq-movil .hq-fondo.on { display: block !important; }
+html.hq-movil .content,
+html.hq-movil .main-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 14px 12px 36px !important;
+    overflow: visible !important;
+    min-width: 0 !important;
+    display: block !important;
+}
+html.hq-movil .layout,
+html.hq-movil .flex-layout,
+html.hq-movil .grid-2,
+html.hq-movil .form-grid,
+html.hq-movil .form-grid-3,
+html.hq-movil .stats-grid,
+html.hq-movil .kpi-grid,
+html.hq-movil .grid-cards,
+html.hq-movil .dashboard-layout {
+    grid-template-columns: 1fr !important;
+    display: block !important;
+}
+html.hq-movil .kpi-card,
+html.hq-movil .card,
+html.hq-movil .card-modern,
+html.hq-movil .hero-balance { margin-bottom: 14px !important; }
+html.hq-movil .hero-balance {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 22px 18px !important;
+}
+html.hq-movil .hero-balance h2 { font-size: 2rem !important; }
+html.hq-movil .hero-balance i { display: none !important; }
+html.hq-movil .tabs-container { flex-wrap: wrap !important; overflow-x: auto; }
+html.hq-movil .tab-btn { padding: 10px 12px !important; font-size: 0.85rem !important; }
+html.hq-movil table,
+html.hq-movil .modern-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+html.hq-movil .modal-overlay,
+html.hq-movil .modal-box,
+html.hq-movil .modal-content,
+html.hq-movil .modal {
+    max-width: 96% !important;
+    width: 96% !important;
+}
+html.hq-movil h1,
+html.hq-movil h2.header-title,
+html.hq-movil .header-title { font-size: 1.25rem !important; }
+html.hq-movil .exp-docs { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+html.hq-movil .exp-head { flex-wrap: wrap !important; }
+html.hq-movil .aviso-wa { flex-direction: column !important; align-items: stretch !important; }
+html.hq-movil .flota-bar { flex-direction: column !important; align-items: stretch !important; }
+html.hq-movil .flota-bar input { min-width: 0 !important; width: 100% !important; }
+
+@media (max-width: 1024px) {
+    html, body {
+        display: block !important;
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+    .hq-topbar {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        background: #fff;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 10px 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .sidebar {
+        display: none !important;
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        width: min(86vw, 320px) !important;
+        min-width: 0 !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        z-index: 220;
+        box-shadow: 12px 0 30px rgba(15, 23, 42, 0.2);
+    }
+    .sidebar.abierto { display: flex !important; flex-direction: column !important; }
+    .sidebar .hq-cerrar {
+        display: inline-flex !important;
+        margin-left: auto;
+        width: 36px;
+        height: 36px;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 10px;
+        background: #f1f5f9;
+        cursor: pointer;
+    }
+    .hq-fondo {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        z-index: 210;
+    }
+    .hq-fondo.on { display: block !important; }
+    .content, .main-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 14px 12px 36px !important;
+        overflow: visible !important;
+        min-width: 0 !important;
+        display: block !important;
+    }
+    .layout, .flex-layout, .grid-2, .form-grid, .form-grid-3,
+    .stats-grid, .kpi-grid, .grid-cards, .dashboard-layout {
+        grid-template-columns: 1fr !important;
+        display: block !important;
+    }
+    .hero-balance { flex-direction: column !important; padding: 22px 18px !important; }
+    .hero-balance h2 { font-size: 2rem !important; }
+    .hero-balance i { display: none !important; }
+    table, .modern-table { display: block; width: 100%; overflow-x: auto; }
+    h1, h2.header-title, .header-title { font-size: 1.25rem !important; }
+}

@@ -1,0 +1,5 @@
+Coloca aquí el APK oficial con este nombre exacto:
+
+yora-driver.apk
+
+El botón «Descargar App» de index.php apunta a ese archivo.
