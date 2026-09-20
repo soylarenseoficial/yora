@@ -1,0 +1,19 @@
+{
+  "id": "com.yoradelivery.driverapp",
+  "name": "YoraDriver",
+  "short_name": "YoraDriver",
+  "description": "App exclusiva para la flota de conductores de YoraDelivery",
+  "start_url": "/index.php",
+  "display": "standalone",
+  "background_color": "#f4f6f8",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://yoradelivery.com/uploads/iconoapp.png?v=2",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

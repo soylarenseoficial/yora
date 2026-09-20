@@ -1,0 +1,18 @@
+{
+  "name": "YoraDriver",
+  "short_name": "YoraDriver",
+  "start_url": "/index.php?v=10",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f6f8",
+  "theme_color": "#e4441b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "https://yoradelivery.com/uploads/logo_1788139976.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
