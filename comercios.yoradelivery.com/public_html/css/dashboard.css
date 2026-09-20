@@ -1,0 +1,54 @@
+:root { --yora-orange: #ce4e2d; --bg-light: #f4f6f8; --text-dark: #2d2d2d; --card-bg: #ffffff; }
+body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
+
+/* NAVBAR */
+.navbar { background: #121212; color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top:0; z-index:100; }
+.navbar h2 { margin: 0; font-weight: 800; }
+.navbar h2 span { color: var(--yora-orange); }
+.user-menu { display: flex; align-items: center; gap: 20px; font-size: 0.9rem;}
+.wallet-badge { background: rgba(206, 78, 45, 0.2); color: var(--yora-orange); padding: 5px 15px; border-radius: 20px; font-weight: bold; }
+.btn-logout { border: 1px solid #555; color: #ccc; padding: 6px 15px; border-radius: 20px; text-decoration: none; transition: 0.3s; }
+.btn-logout:hover { border-color: var(--yora-orange); color: white; }
+
+/* ESTRUCTURA DEL DASHBOARD (Pantalla Dividida) */
+.dashboard-grid { display: grid; grid-template-columns: 400px 1fr; gap: 30px; padding: 30px 5%; max-width: 1400px; margin: 0 auto; align-items: start;}
+
+/* PANEL IZQUIERDO: PEDIR DELIVERY */
+.request-panel { background: var(--card-bg); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.request-panel h3 { margin-top: 0; color: var(--text-dark); border-bottom: 2px solid #eee; padding-bottom: 15px; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.85rem; color: #666; margin-bottom: 8px; font-weight: 600; }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 12px;
+    font-family: inherit; font-size: 0.95rem; box-sizing: border-box; transition: 0.3s;
+}
+.form-group input:focus { border-color: var(--yora-orange); outline: none; }
+
+/* EL MAPA */
+#mapa-cliente { height: 250px; width: 100%; border-radius: 12px; margin-bottom: 15px; border: 2px solid #eee; z-index: 1;}
+
+.cost-calculator { background: #fdf2ef; border: 1px solid #f9d8d0; padding: 15px; border-radius: 12px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;}
+.cost-calculator .km { font-size: 0.9rem; color: #888; }
+.cost-calculator .price { font-size: 1.5rem; font-weight: bold; color: var(--yora-orange); margin:0;}
+
+.btn-request {
+    background: var(--yora-orange); color: white; width: 100%; border: none;
+    padding: 15px; border-radius: 12px; font-weight: bold; font-size: 1.1rem;
+    cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(206, 78, 45, 0.3);
+}
+.btn-request:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(206, 78, 45, 0.5); }
+
+/* PANEL DERECHO: VIAJES ACTIVOS */
+.active-deliveries { background: transparent; }
+.active-deliveries h3 { margin-top: 0; }
+.delivery-card {
+    background: white; padding: 20px; border-radius: 15px; margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03); border-left: 4px solid var(--yora-orange);
+    display: flex; justify-content: space-between; align-items: center;
+}
+.delivery-info h4 { margin: 0 0 5px; color: var(--text-dark); }
+.delivery-info p { margin: 0; font-size: 0.85rem; color: #777; }
+.status-badge { background: #fff3cd; color: #856404; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+
+@media (max-width: 900px) { .dashboard-grid { grid-template-columns: 1fr; } }
